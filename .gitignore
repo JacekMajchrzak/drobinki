@@ -112,7 +112,9 @@ hs_err_pid*
 .DS_Store
 .AppleDouble
 .LSOverride
-
+*.DS_Store
+drobinki-service/src/test/.DS_Store
+drobinki-service/src/main/.DS_Store
 # Icon must end with two \r
 Icon
 
