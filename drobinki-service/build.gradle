@@ -1,13 +1,14 @@
 plugins {
 	id 'org.springframework.boot' version '2.1.6.RELEASE'
 	id 'java'
+	id 'com.bmuschko.docker-spring-boot-application' version '4.10.0'
 }
 
 apply plugin: 'io.spring.dependency-management'
 
 group = 'pl.drobinki'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '12'
+sourceCompatibility = '11'
 
 repositories {
 	mavenCentral()
@@ -18,4 +19,15 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	runtimeOnly 'com.h2database:h2'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	compileOnly 'org.projectlombok:lombok:1.18.8'
+	annotationProcessor 'org.projectlombok:lombok:1.18.8'
+}
+
+docker {
+	springBootApplication {
+		baseImage = 'openjdk:11-slim'
+		ports = [8080, 8080]
+		tag = 'drobinki-service:0.1'
+		jvmArgs = ['-Dspring.profiles.active=production', '-Xmx2048m']
+	}
 }

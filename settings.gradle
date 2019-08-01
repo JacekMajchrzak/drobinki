@@ -1,2 +1,3 @@
 include 'drobinki-functional-tests'
+include 'drobinki-service'
 

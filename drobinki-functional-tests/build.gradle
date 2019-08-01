@@ -4,7 +4,7 @@ plugins {
 
 version 'unspecified'
 
-sourceCompatibility = 1.8
+sourceCompatibility = 11
 
 repositories {
     mavenCentral()
@@ -12,4 +12,6 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile 'io.rest-assured:rest-assured:4.0.0'
+    testCompile("org.assertj:assertj-core:3.11.1")
 }
